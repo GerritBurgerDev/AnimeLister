@@ -53,8 +53,9 @@ export class AnimeLister extends LitElement {
         <p>Edit <code>src/AnimeLister.js</code> and save to reload.</p>
       </main>
 
-      <anime-card slot cardTitle='Card Title'></anime-card>
+      <app-card cardTitle="Card Title"></app-card>
     `;
   }
 }
 
+customElements.define('anime-lister', AnimeLister);

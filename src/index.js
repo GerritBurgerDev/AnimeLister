@@ -1,4 +1,20 @@
-import './home-page/anime-lister.js';
-import './common/AppCard/app-card.js';
-import './common/NavBar/nav-bar.js';
-import './common/AppMenu/app-menu.js';
+import { Router } from '@vaadin/router';
+import './components/app.js';
+
+const routes = [
+  {
+    path: '/',
+    component: 'lit-app',
+    children: [
+      {
+        path: '/login',
+        component: 'login-page',
+        children: [],
+      },
+    ],
+  },
+];
+
+const outlet = document.getElementById('outlet');
+export const router = new Router(outlet);
+router.setRoutes(routes);

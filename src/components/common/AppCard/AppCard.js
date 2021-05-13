@@ -1,4 +1,4 @@
-import {LitElement, html} from "lit-element";
+import { LitElement, html } from 'lit-element';
 
 export class AppCard extends LitElement {
   static get properties() {
@@ -7,7 +7,7 @@ export class AppCard extends LitElement {
       cardSubTitle: { type: String },
       cardDescription: { type: String },
       cardActionLink: { type: String },
-      cardImageUrl: { type: String }
+      cardImageUrl: { type: String },
     };
   }
 
@@ -15,7 +15,7 @@ export class AppCard extends LitElement {
     return html`
       <div class="card">
         <div class="card-image">
-          <img src=${this.cardImageUrl} alt=''/>
+          <img src=${this.cardImageUrl} alt="" />
           <span>${this.cardTitle}</span>
         </div>
         <div class="card-content">
@@ -30,3 +30,5 @@ export class AppCard extends LitElement {
     `;
   }
 }
+
+customElements.define('anime-card', AppCard);
