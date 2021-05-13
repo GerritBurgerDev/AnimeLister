@@ -37,7 +37,7 @@ export class AppMenu extends LitElement {
         }
 
         .dropdown-content a:hover {
-          background-color: rgba(179, 179, 179, 0.47)
+          background-color: rgba(179, 179, 179, 0.47);
         }
 
         .dropdown:hover .dropdown-content {
@@ -47,13 +47,13 @@ export class AppMenu extends LitElement {
         .dropdown:hover .dropdown-button {
           background-color: rgba(184, 184, 184, 0.28);
         }
-      `
+      `,
     ];
   }
 
   static get properties() {
     return {
-      menuItems: { type: Array }
+      menuItems: { type: Array },
     };
   }
 
@@ -63,9 +63,13 @@ export class AppMenu extends LitElement {
         <button class="dropdown-button"><i class="fas fa-bars"></i></button>
 
         <div class="dropdown-content">
-          ${this.menuItems.map((item) => html`<a href=${item.link}>${item.name}</a>`)}
+          ${this.menuItems.map(
+            item => html`<a href=${item.link}>${item.name}</a>`
+          )}
         </div>
       </div>
     `;
   }
 }
+
+customElements.define('app-menu', AppMenu);
