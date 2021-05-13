@@ -1,13 +1,13 @@
 import { LitElement, html } from 'lit-element';
 
-export class App extends LitElement {
+export class LayoutPage extends LitElement {
   render() {
     return html`
       <nav-bar></nav-bar>
-
       <slot></slot>
+      <footer></footer>
     `;
   }
 }
 
-customElements.define('anime-lister-app', App);
+customElements.define('layout-page', LayoutPage);

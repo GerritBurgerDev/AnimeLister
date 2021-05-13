@@ -1,17 +1,16 @@
 import { Router } from '@vaadin/router';
-import './components/app.js';
+import './components/index.js';
 
 const routes = [
   {
     path: '/',
-    component: 'lit-app',
-    children: [
-      {
-        path: '/login',
-        component: 'login-page',
-        children: [],
-      },
-    ],
+    component: 'home-page',
+    children: [],
+  },
+  {
+    path: '/login',
+    component: 'login-page',
+    children: [],
   },
 ];
 

@@ -45,13 +45,11 @@ export class AnimeLister extends LitElement {
 
   render() {
     return html`
-      <nav-bar></nav-bar>
-
-      <main>
+      <header>
         <h1>${this.title}</h1>
 
         <p>Edit <code>src/AnimeLister.js</code> and save to reload.</p>
-      </main>
+      </header>
 
       <app-card cardTitle="Card Title"></app-card>
     `;
