@@ -4,7 +4,8 @@ export class HomePage extends LitElement {
   render() {
     return html`
       <layout-page>
-        <anime-lister></anime-lister>
+        <anime-lister>
+        </anime-lister>
       </layout-page>
     `;
   }
