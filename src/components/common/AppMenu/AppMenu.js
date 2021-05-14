@@ -22,6 +22,7 @@ export class AppMenu extends LitElement {
         .dropdown-content {
           display: none;
           position: absolute;
+          right: 0;
           background-color: #f9f9f9;
           font-size: 16px;
           min-width: 100px;

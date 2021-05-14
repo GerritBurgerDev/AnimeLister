@@ -21,6 +21,7 @@ export class AnimeLister extends LitElement {
         margin: 0 auto;
         text-align: center;
         background-color: var(--anime-lister-background-color);
+        padding-top: 50px;
       }
 
       main {
