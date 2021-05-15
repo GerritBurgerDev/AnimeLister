@@ -17,15 +17,16 @@ export class AppCard extends LitElement {
       Fontawesome,
       css`
         .card {
-          width: 300px;
-          height: 350px;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          width: 400px;
+          height: 700px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         .card-image {
           width: 100%;
           object-fit: cover;
-          height: 150px;
+          height: 500px;
         }
 
         .card-header-text {
@@ -79,8 +80,8 @@ export class AppCard extends LitElement {
           color: #292929;
           background-color: rgba(81, 81, 81, 0.3);
         }
-      `
-    ]
+      `,
+    ];
   }
 
   render() {
@@ -89,9 +90,9 @@ export class AppCard extends LitElement {
         <div class="card-header">
           <img class="card-image" src=${this.cardImageUrl} alt="" />
 
-          <div class='card-header-text'>
-            <span class="card-title" >${this.cardTitle}</span>
-            <span class="card-subtitle" >${this.cardSubTitle}</span>
+          <div class="card-header-text">
+            <span class="card-title">${this.cardTitle}</span>
+            <span class="card-subtitle">${this.cardSubTitle}</span>
           </div>
         </div>
 

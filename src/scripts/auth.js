@@ -1,23 +1,6 @@
 const signInButton = document.getElementsByClassName('g-signin2')[0];
 const signedInLabel = document.getElementById('signedInLabel');
 
-function getCookie(cname) {
-  const name = `${cname}=`;
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return '';
-}
-
 function signOut() {
   // eslint-disable-next-line no-undef
   const auth2 = gapi.auth2.getAuthInstance();
@@ -35,12 +18,15 @@ function onSignIn(googleUser) {
   // eslint-disable-next-line camelcase
   const { id_token } = googleUser.getAuthResponse();
 
+  const user = googleUser.getBasicProfile().getName();
+
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', '/login');
+  xhr.open('POST', 'http://localhost:1337/login');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = () => {
     if (xhr.responseText === 'success') {
-      signedInLabel.innerText = `Sign in as: ${getCookie('user')}`;
+      signInButton.style.display = 'none';
+      signedInLabel.innerText = `Signed in as: ${user}`;
       signedInLabel.style.display = 'block';
     } else {
       signOut();
@@ -49,19 +35,6 @@ function onSignIn(googleUser) {
   xhr.send(
     JSON.stringify({
       token: id_token,
-      userEntity: googleUser.getBasicProfile().getName(),
     })
   );
 }
-
-function checkIfLoggedIn() {
-  const sessionToken = getCookie('session-token');
-  if (sessionToken !== '') {
-    const user = getCookie('user');
-    signInButton.style.display = 'none';
-    signedInLabel.innerText = `Sign in as: ${user}`;
-    signedInLabel.style.display = 'block';
-  }
-}
-
-checkIfLoggedIn();

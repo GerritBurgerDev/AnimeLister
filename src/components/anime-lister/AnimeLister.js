@@ -28,8 +28,8 @@ export class AnimeLister extends LitElement {
       .grid-container {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-column-gap: 100px;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-column-gap: 10px;
         grid-row-gap: 50px;
       }
     `;
