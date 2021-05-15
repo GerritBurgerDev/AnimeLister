@@ -21,6 +21,10 @@ export class AnimeLister extends LitElement {
         flex-grow: 1;
       }
 
+      .search-and-filter-container {
+        margin-bottom: 30px;
+      }
+
       .grid-container {
         width: 100%;
         display: grid;
@@ -103,12 +107,11 @@ export class AnimeLister extends LitElement {
 
   render() {
     return html`
-      <header>
-        <h1>${this.title}</h1>
-        <p>Edit <code>src/AnimeLister.js</code> and save to reload.</p>
-      </header>
-
       <body>
+        <div class="search-and-filter-container">
+          <app-search-bar></app-search-bar>
+        </div>
+
         <div class="grid-container">
           ${this.cards.map(
             card =>
