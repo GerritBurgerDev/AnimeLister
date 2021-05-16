@@ -7,6 +7,11 @@ const routes = [
     component: 'home-page',
     children: [],
   },
+  {
+    path: '/login',
+    component: 'login-page',
+    children: [],
+  },
 ];
 
 const outlet = document.getElementById('outlet');
