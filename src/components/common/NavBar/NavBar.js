@@ -3,7 +3,7 @@ import { css, html, LitElement } from 'lit-element';
 export class NavBar extends LitElement {
   static get properties() {
     return {
-      items: { type: Array }
+      items: { type: Array },
     };
   }
 
@@ -17,7 +17,7 @@ export class NavBar extends LitElement {
         margin: 0 50px 0 0;
         padding-top: 5px;
         padding-bottom: 5px;
-        box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
         background-color: white;
       }
 
@@ -46,7 +46,7 @@ export class NavBar extends LitElement {
     super();
     this.items = [
       { name: 'Link 1', link: '#' },
-      { name: 'Link 2', link: '#' }
+      { name: 'Link 2', link: '#' },
     ];
   }
 
@@ -54,10 +54,10 @@ export class NavBar extends LitElement {
     return html`
       <nav>
         <ul>
-          <li class='logo-container'>
-            <img class='logo' src='assets/images/logo.png' alt=''>
+          <li class="logo-container">
+            <img class="logo" src="assets/images/logo.png" alt="" />
           </li>
-          <li class='google-sign-in'>
+          <li class="google-sign-in">
             <slot></slot>
           </li>
         </ul>
