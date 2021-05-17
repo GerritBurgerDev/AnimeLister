@@ -35,8 +35,8 @@ export class AnimeLister extends LitElement {
         .grid-container {
           width: 100%;
           display: grid;
-          grid-template-columns: 300px 300px 300px 300px;
-          grid-column-gap: 100px;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-column-gap: 50px;
           grid-row-gap: 50px;
         }
 
