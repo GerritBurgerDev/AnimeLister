@@ -1,6 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
 
 export class AuthErrorPage extends LitElement {
+  constructor() {
+    super();
+    [this.loginButton] = document.getElementsByClassName('abcRioButton');
+  }
+
   static get styles() {
     return css`
       :host {
@@ -13,7 +18,7 @@ export class AuthErrorPage extends LitElement {
 
       #message-container {
         background-color: white;
-        padding: 20px;
+        padding: 20px 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -26,7 +31,36 @@ export class AuthErrorPage extends LitElement {
       }
 
       #message-container p {
+        flex: 1;
         text-align: center;
+      }
+
+      #message-container button {
+        background-color: #fff;
+        color: #757575;
+        font-size: 13px;
+        line-height: 34px;
+        font-family: Roboto, arial, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.21px;
+
+        border-radius: 20px;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+        transition: border-color 0.218s, box-shadow 0.218s;
+        box-sizing: border-box;
+        color: #262626;
+        cursor: pointer;
+        border: 1px solid rgb(192, 189, 189);
+        overflow: hidden;
+        text-align: center;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 240px;
+        height: 46px;
+      }
+
+      #message-container button:hover {
+        box-shadow: 0 0 3px 3px rgb(66 133 244 / 30%);
       }
 
       .scale-in-center {
@@ -75,20 +109,20 @@ export class AuthErrorPage extends LitElement {
     `;
   }
 
+  _handleLoginClick() {
+    this.loginButton.click();
+  }
+
   render() {
     return html`
       <main id="message-container" class="scale-in-center">
         <h1>Authentication Error</h1>
         <p>
-          You need to be logged in with a valid google account if you want to
+          You need to be signed in with a valid google account if you want to
           access this content.
         </p>
+        <button @click=${this._handleLoginClick} type="button">Sign in</button>
       </main>
-      <script>
-        const navBarLoginButton =
-          document.getElementsByClassName('g-signin2')[0];
-        console.log(navBarLoginButton);
-      </script>
     `;
   }
 }

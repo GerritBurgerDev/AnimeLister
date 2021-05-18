@@ -14,7 +14,9 @@ function signOut() {
       signedInLabel.innerText = '';
       signedInControls.style.display = 'none';
       signInButton.style.display = 'block';
-      window.location = '/';
+      if (window.location.pathname !== '/') {
+        window.location = '/';
+      }
     });
   });
 }
@@ -35,6 +37,9 @@ function onSignIn(googleUser) {
       signInButton.style.display = 'none';
       signedInLabel.innerText = `Welcome, ${user}`;
       signedInControls.style.display = 'flex';
+      if (window.location.pathname !== '/') {
+        window.location = '/';
+      }
     } else {
       signOut();
     }
