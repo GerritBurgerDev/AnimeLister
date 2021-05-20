@@ -1,11 +1,17 @@
 import { LitElement, html, css } from 'lit-element';
 
+
 export class RateAnime extends LitElement {
+
+    static get properties() {
+        return {
+          animeId: { type: Number },
+        };
+    }
 
     constructor() {
         super();
-        this.animeId;
-        this.rateLevel;
+        this.rateLevel = 0;
     }
 
     static get styles() {
@@ -46,6 +52,7 @@ export class RateAnime extends LitElement {
         fetch('https://anime-test.herokuapp.com/addRating', {
             method: 'POST',
             mode: 'cors',
+            credentials: 'include',
             body: JSON.stringify({
                 animeid: this.animeId,
                 rating: this.rateLevel,
@@ -53,7 +60,10 @@ export class RateAnime extends LitElement {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
-        }).catch(err => {
+        }).then(() => {
+            this.rateLevel = 0;
+        })
+        .catch(err => {
             alert(err);
         });
     }
@@ -67,7 +77,7 @@ export class RateAnime extends LitElement {
                     <img class="star" id="3" src="assets/images/star.png" alt="star rating 3" onclick="ratingLevel(3)" @click=${this.updateRateLevel}>
                     <img class="star" id="4" src="assets/images/star.png" alt="star rating 4" onclick="ratingLevel(4)" @click=${this.updateRateLevel}>
                     <img class="star" id="5" src="assets/images/star.png" alt="star rating 5" onclick="ratingLevel(5)" @click=${this.updateRateLevel}>
-                    <button id="submit" @click=${this.submitRating}>Submit Review</button>
+                    <button id="submit" onclick="ratingLevel(0) @click=${this.submitRating}>Submit Review</button>
             </section>
         `;
       }
