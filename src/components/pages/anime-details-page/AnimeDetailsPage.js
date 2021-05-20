@@ -2,18 +2,17 @@ import { LitElement, html, css } from 'lit-element';
 
 export class AnimeDetailsPage extends LitElement {
   async onBeforeEnter(context) {
-    const id = context.params.id;
+    const { id } = context.params;
     const response = await fetch(
       `https://anime-test.herokuapp.com/animedata/${id}`
     );
     const [data] = await response.json();
-    console.log(data);
 
     this.imageUrl = data.imageurl;
     this.title = data.title;
-    this.subtitle = data.subtitle;
+    this.subtitle = data.studio;
     this.description = data.description;
-    this.backgroundUrl = data.backgroundUrl;
+    this.backgroundUrl = data.backgroundurl;
   }
 
   static get styles() {
@@ -48,10 +47,6 @@ export class AnimeDetailsPage extends LitElement {
     `;
   }
 
-  constructor() {
-    super();
-  }
-
   render() {
     return html`
       <div
@@ -63,7 +58,7 @@ export class AnimeDetailsPage extends LitElement {
           imageUrl=${this.imageUrl}
           title=${this.title}
           subTitle=${this.subtitle}
-          description=${this.studio}
+          description=${this.description}
         >
         </anime-details>
       </div>
