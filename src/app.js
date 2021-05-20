@@ -14,20 +14,10 @@ const routes = [
   {
     path: '/',
     component: 'home-page',
-    children: [],
   },
   {
     path: '/anime/:id',
-    component: 'home-page',
-    action: async ctx => {
-      const authenticated = await isAuthenticated();
-      if (!authenticated) {
-        window.location = '/';
-        alert('Please login with your google account');
-      }
-      const { id } = ctx.params;
-      console.log(id);
-    },
+    component: 'anime-details-page',
   },
 ];
 
