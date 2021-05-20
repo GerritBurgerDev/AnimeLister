@@ -10,10 +10,6 @@ const routes = [
   {
     path: '/anime/:id',
     component: 'anime-overview-page',
-    action: async ctx => {
-      const { id } = ctx.params;
-      console.log(id);
-    },
   },
   {
     path: '/auth-error',
