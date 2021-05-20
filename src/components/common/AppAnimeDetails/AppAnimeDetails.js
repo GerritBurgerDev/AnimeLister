@@ -68,6 +68,7 @@ export class AppAnimeDetails extends LitElement {
           <h2>${this.title}</h2>
           <h3>${this.subTitle}</h3>
           <p>${this.description}</p>
+          <rate-anime id = ${this.id}></rate-anime>
         </div>
       </div>
     `;

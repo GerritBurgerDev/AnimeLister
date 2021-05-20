@@ -15,9 +15,7 @@ export class RateAnime extends LitElement {
   static get styles() {
     return css`
       .container {
-        width: 50%;
-        margin-left: 25%;
-        margin-right: 25%;
+        background-color: #ededed;
       }
 
       .star {
@@ -73,7 +71,6 @@ export class RateAnime extends LitElement {
   render() {
     return html`
       <section class="container rate">
-        <h4>Choose a Rating</h4>
         <img
           class="star"
           id="1"
