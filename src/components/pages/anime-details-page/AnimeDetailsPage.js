@@ -11,9 +11,9 @@ export class AnimeDetailsPage extends LitElement {
 
     this.imageUrl = data.imageurl;
     this.title = data.title;
-    this.subtitle = data.subtitle;
+    this.subtitle = data.studio;
     this.description = data.description;
-    this.backgroundUrl = data.backgroundUrl;
+    this.backgroundUrl = data.backgroundurl;
   }
 
   static get styles() {
@@ -63,7 +63,7 @@ export class AnimeDetailsPage extends LitElement {
           imageUrl=${this.imageUrl}
           title=${this.title}
           subTitle=${this.subtitle}
-          description=${this.studio}
+          description=${this.description}
         >
         </anime-details>
       </div>

@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit-element';
 
 export class HomePage extends LitElement {
   render() {
-    return html` <anime-lister> </anime-lister> `;
+    return html` <anime-lister id="anime-lister"> </anime-lister> `;
   }
 }
 

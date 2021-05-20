@@ -29,7 +29,7 @@ export class AppAnimeDetails extends LitElement {
           margin-top: 75px;
         }
         .img-details {
-          height: 400px;
+          height: auto;
           margin: 10px;
           width: 400px;
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
