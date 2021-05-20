@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 
-export class AnimeLister extends LitElement {
+export class AnimeLister extends observeState(LitElement) {
   static get properties() {
     return {
       title: { type: String },
@@ -39,97 +39,48 @@ export class AnimeLister extends LitElement {
   constructor() {
     super();
     this.title = 'AnimeLister';
-    this.cards = [
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-      {
-        cardTitle: 'Default Title',
-        cardSubTitle: 'Default Subtitle',
-        cardDescription:
-          'Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie Some ipsum lorem shit Homie',
-        cardActionLink: '/anime/01',
-        cardImageUrl:
-          'https://cdnb.artstation.com/p/assets/images/images/014/312/045/large/hlulani-brx-nukeri-dabi.jpg?1543439933',
-      },
-    ];
+    this.cards = [];
+  }
+
+  async populateCards() {
+    fetch('https://anime-test.herokuapp.com/listanime')
+    .then((response) => response.json())
+    .then((json) => {
+          console.log(json);
+            json.forEach(anime => {
+                this.cards.push({
+                    cardTitle: anime.title,
+                    cardSubTitle: anime.subtitle,
+                    cardDescription: anime.description,
+                    cardActionLink: '/rate/'+anime.animeid,
+                    cardImageUrl: anime.imageurl,
+                });
+            });
+        })
+        .catch(err => {console.log(err)});
   }
 
   render() {
-    return html`
-      <body>
-        <div class="search-and-filter-container">
-          <app-search-bar></app-search-bar>
-        </div>
-
-        <div class="grid-container">
-          ${this.cards.map(
-            card =>
-              html`
-                <app-card
-                  cardTitle=${card.cardTitle}
-                  cardSubTitle=${card.cardSubTitle}
-                  cardDescription=${card.cardDescription}
-                  cardActionLink=${card.cardActionLink}
-                  cardImageUrl=${card.cardImageUrl}
-                ></app-card>
-              `
-          )}
-        </div>
-      </body>
-    `;
-  }
+      return html`
+          <div class="search-and-filter-container">
+            <app-search-bar></app-search-bar>
+          </div>
+          <div class="grid-container">
+            ${this.cards.map(
+              card =>
+                html`
+                  <app-card
+                    cardTitle=${card.cardTitle}
+                    cardSubTitle=${card.cardSubTitle}
+                    cardDescription=${card.cardDescription}
+                    cardActionLink=${card.cardActionLink}
+                    cardImageUrl=${card.cardImageUrl}
+                  ></app-card>
+                `
+              )}
+          </div>
+      `;
+    }
 }
 
 customElements.define('anime-lister', AnimeLister);

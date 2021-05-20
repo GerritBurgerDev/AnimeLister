@@ -21,26 +21,26 @@ function signOut() {
 // eslint-disable-next-line no-unused-vars
 function onSignIn(googleUser) {
   // eslint-disable-next-line camelcase
-  const { id_token } = googleUser.getAuthResponse();
+  // const { id_token } = googleUser.getAuthResponse();
 
-  const user = googleUser.getBasicProfile().getName();
+  // const user = googleUser.getBasicProfile().getName();
 
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:1337/login');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.withCredentials = true;
-  xhr.onload = () => {
-    if (xhr.responseText === 'success') {
-      signInButton.style.display = 'none';
-      signedInLabel.innerText = `Welcome, ${user}`;
-      signedInControls.style.display = 'flex';
-    } else {
-      signOut();
-    }
-  };
-  xhr.send(
-    JSON.stringify({
-      token: id_token,
-    })
-  );
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('POST', 'http://localhost:1337/login');
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  // xhr.withCredentials = true;
+  // xhr.onload = () => {
+  //   if (xhr.responseText === 'success') {
+  //     signInButton.style.display = 'none';
+  //     signedInLabel.innerText = `Welcome, ${user}`;
+  //     signedInControls.style.display = 'flex';
+  //   } else {
+  //     signOut();
+  //   }
+  // };
+  // xhr.send(
+  //   JSON.stringify({
+  //     token: id_token,
+  //   })
+  // );
 }

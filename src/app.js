@@ -1,14 +1,14 @@
 import { Router } from '@vaadin/router';
 import './components/index.js';
 
-async function isAuthenticated() {
-  const response = await fetch('http://localhost:1337/authenticate', {
-    method: 'GET',
-    mode: 'cors',
-    credentials: 'include',
-  });
-  return (await response.text()) === 'authorized';
-}
+// async function isAuthenticated() {
+//   const response = await fetch('http://localhost:1337/authenticate', {
+//     method: 'GET',
+//     mode: 'cors',
+//     credentials: 'include',
+//   });
+//   return (await response.text()) === 'authorized';
+// }
 
 const routes = [
   {
@@ -17,17 +17,17 @@ const routes = [
     children: [],
   },
   {
-    path: '/anime/:id',
-    component: 'home-page',
-    action: async ctx => {
-      const authenticated = await isAuthenticated();
-      if (!authenticated) {
-        window.location = '/';
-        alert('Please login with your google account');
-      }
-      const { id } = ctx.params;
-      console.log(id);
-    },
+    path: '/rate/:id',
+    component: 'rate-page',
+    // action: async ctx => {
+    //   const authenticated = await isAuthenticated();
+    //   if (!authenticated) {
+    //     window.location = '/';
+    //     alert('Please login with your google account');
+    //   }
+    //   const { id } = ctx.params;
+    //   console.log(id);
+    // },
   },
 ];
 
