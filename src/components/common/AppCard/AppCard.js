@@ -16,10 +16,19 @@ export class AppCard extends LitElement {
     return [
       Fontawesome,
       css`
+        h1,
+        h2,
+        h3,
+        h4 {
+          margin: 0;
+        }
+
         .card {
+          padding-bottom: 10px;
           width: 300px;
           height: 350px;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         .card-image {
@@ -30,11 +39,16 @@ export class AppCard extends LitElement {
 
         .card-header-text {
           padding: 0 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
         .card-title {
+          display: inline;
           font-size: 20px;
           font-weight: 700;
+          overflow: hidden;
         }
 
         .card-subtitle {
@@ -61,14 +75,13 @@ export class AppCard extends LitElement {
         }
 
         .card-footer {
+          display: flex;
+          justify-content: flex-end;
           margin-top: 20px;
           padding: 0 5px;
         }
 
         .card-footer a {
-          position: relative;
-          bottom: 10px;
-          float: right;
           padding: 10px 15px;
           text-decoration: none;
           text-transform: uppercase;
@@ -79,30 +92,34 @@ export class AppCard extends LitElement {
           color: #292929;
           background-color: rgba(81, 81, 81, 0.3);
         }
-      `
-    ]
+      `,
+    ];
   }
 
   render() {
     return html`
-      <div class="card">
-        <div class="card-header">
+      <main class="card">
+        <section class="card-header">
           <img class="card-image" src=${this.cardImageUrl} alt="" />
 
-          <div class='card-header-text'>
-            <span class="card-title" >${this.cardTitle}</span>
-            <span class="card-subtitle" >${this.cardSubTitle}</span>
-          </div>
-        </div>
+          <article class="card-header-text">
+            <h2 title=${this.cardTitle} class="card-title">
+              ${this.cardTitle}
+            </h2>
+            <h3 title=${this.cardSubTitle} class="card-subtitle">
+              ${this.cardSubTitle}
+            </h3>
+          </article>
+        </section>
 
-        <div class="card-content">
+        <section class="card-content">
           <p>${this.cardDescription}</p>
-        </div>
+        </section>
 
-        <div class="card-footer">
+        <section class="card-footer">
           <a href=${this.cardActionLink}>SEE MORE</a>
-        </div>
-      </div>
+        </section>
+      </main>
     `;
   }
 }

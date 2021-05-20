@@ -1,6 +1,6 @@
 const isAuthenticated = async () => {
   const response = await fetch(
-    'https://anime-test.herokuapp.com//authenticate',
+    'https://anime-test.herokuapp.com/authenticate',
     {
       method: 'GET',
       mode: 'cors',

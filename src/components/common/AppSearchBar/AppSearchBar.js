@@ -1,10 +1,11 @@
+/* eslint-disable class-methods-use-this */
 import { LitElement, html, css } from 'lit-element';
 
 export class AppSearchBar extends LitElement {
   static get styles() {
     return [
       css`
-        input[type=text] {
+        input[type='text'] {
           width: 275px;
           box-sizing: border-box;
           border: 2px solid #ccc;
@@ -17,14 +18,35 @@ export class AppSearchBar extends LitElement {
           background-repeat: no-repeat;
           padding: 12px 20px 12px 40px;
         }
-      `
+      `,
     ];
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+  }
+
+  onSearch() {
+    const searchBar = this.shadowRoot.getElementById('search');
+    const searchTerm = searchBar.value;
+    const searchMessage = new CustomEvent('search', {
+      detail: { searchTerm },
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(searchMessage);
   }
 
   render() {
     return html`
-      <form>
-        <input type="text" name="search" placeholder="Search..">
+      <form @submit="${this.onFormSubmit}">
+        <input
+          id="search"
+          @keyup="${this.onSearch}"
+          type="text"
+          name="search"
+          placeholder="Search.."
+        />
       </form>
     `;
   }
