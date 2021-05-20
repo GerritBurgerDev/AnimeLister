@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { Router } from '@vaadin/router';
+import {router} from '../../app';
 
 export class RateAnime extends LitElement {
   static get properties() {
@@ -93,36 +94,38 @@ export class RateAnime extends LitElement {
 
     constructor() {
         super();
-        // this.loadAnimeData();
-        this.animeUrl = "https://static.bunnycdn.ru/i/cache/images/b/bf/bf388231ecfe39a7f43d88b34de879c7.jpg";
-        this.animeId = "anime1";
-        this.animeTitle = "It's about to go up";
-        this.currentRate = 4.8;
+        this.animeUrl;
+        this.animeId = router.location.params.id;
+        this.animeTitle;
+        this.currentRate;
         this.comments = [
             {
-                name: 'Thami',
+                name: 'Texman',
                 comment: 'This is a lovely comment'
             },
             {
-                name: 'Thami',
+                name: 'Texman',
                 comment: 'This is a lovely comment'
             },
             {
-                name: 'Thami',
+                name: 'Texman',
                 comment: 'This is a lovely comment'
             }
         ]; 
+        // console.log(this.animeId);
+        this.loadAnimeData();
     }
 
-    loadAnimeData (){
-        fetch('https://localhost:44351/home/animedata/2', {mode: 'no-cors'})
+    loadAnimeData (id){
+        fetch('https://anime-test.herokuapp.com/animedata/'+id, {mode: 'cors'})
         .then(response => response.json())
         .then(json => {
-            this.animeUrl = json.imageurl;
-            this.animeId = json.animeid;
-            this.animeTitle = json.title;
-            this.description = json.description;
-            this.currentRate = json.rating;})
+            console.log(json[0]);
+            this.animeUrl = json[0].imageurl;
+            // this.animeId = 'img'+json[0].animeid;
+            this.animeTitle = json[0].title;
+            this.description = json[0].description;
+            this.currentRate = json[0].rating == null ? 0: json[0].rating;})
         .catch(err => {console.log(err)});
     }
 
@@ -146,7 +149,7 @@ export class RateAnime extends LitElement {
             mode: 'cors',
             body: JSON.stringify({
                 animeid: this.animeId,
-                googleid: 2,
+                googleid:this.animeId,
                 rating: this.rateLevel,
                 reviewer: this.reviewer,
                 comment: this.comment
@@ -155,11 +158,11 @@ export class RateAnime extends LitElement {
                 "Content-type": "application/json; charset=UTF-8"
             },
         }).then(data => {
-            console.log(data);
-            // Router.go('/');
+            alert(data);
+            Router.go('/');
         }).catch(err => {
-            console.log(err);
-            // Router.go('/');
+            alert(err);
+            Router.go('/');
         });
     }
 
@@ -182,7 +185,7 @@ export class RateAnime extends LitElement {
         </div>
 
         <figure>
-            <img id="${this.animeId}" class="container anime" src="${this.animeUrl}")>
+            <img class="container anime" src="${this.animeUrl}")>
             <figcaption class="container">
                 ${this.animeTitle}
                 <p>${this.description}</p>
