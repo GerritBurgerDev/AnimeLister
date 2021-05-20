@@ -1,12 +1,8 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable lit-a11y/click-events-have-key-events */
 import { css, html, LitElement } from 'lit-element';
 import Fontawesome from 'lit-fontawesome';
-
-const getAnime = async () => {
-  const res = await fetch('https://anime-test.herokuapp.com/listanime');
-  const anime = await res.json();
-  return anime;
-};
+import { AnimeController } from '../../controllers/animeController.js';
 
 const createAnimeModel = responseObject => ({
   cardTitle: responseObject.title,
@@ -78,7 +74,7 @@ export class AnimeLister extends LitElement {
   constructor() {
     super();
     this.title = 'AnimeLister';
-    getAnime().then(animes => {
+    AnimeController.get().then(animes => {
       this.cards = animes.map(anime => createAnimeModel(anime));
     });
     this.sortOrder = 'Descending';
@@ -87,6 +83,25 @@ export class AnimeLister extends LitElement {
       ascending: 'chevron-up',
     };
     this.sortIcon = this.filterIcons.descending;
+    this.addEventListener('search', e => {
+      this.onSearch(e.detail.searchTerm);
+    });
+  }
+
+  onSearch(searchTerm) {
+    if (!searchTerm.length) {
+      AnimeController.get().then(animes => {
+        this.cards = animes.map(anime => createAnimeModel(anime));
+      });
+      return;
+    }
+    AnimeController.get().then(animes => {
+      this.cards = animes
+        .filter(anime =>
+          anime.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map(anime => createAnimeModel(anime));
+    });
   }
 
   render() {

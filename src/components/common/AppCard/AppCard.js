@@ -24,6 +24,7 @@ export class AppCard extends LitElement {
         }
 
         .card {
+          padding-bottom: 10px;
           width: 300px;
           height: 350px;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
@@ -74,14 +75,13 @@ export class AppCard extends LitElement {
         }
 
         .card-footer {
+          display: flex;
+          justify-content: flex-end;
           margin-top: 20px;
           padding: 0 5px;
         }
 
         .card-footer a {
-          position: relative;
-          bottom: 10px;
-          float: right;
           padding: 10px 15px;
           text-decoration: none;
           text-transform: uppercase;
@@ -98,28 +98,28 @@ export class AppCard extends LitElement {
 
   render() {
     return html`
-      <article class="card">
+      <main class="card">
         <section class="card-header">
           <img class="card-image" src=${this.cardImageUrl} alt="" />
 
-          <div class="card-header-text">
+          <article class="card-header-text">
             <h2 title=${this.cardTitle} class="card-title">
               ${this.cardTitle}
             </h2>
             <h3 title=${this.cardSubTitle} class="card-subtitle">
               ${this.cardSubTitle}
             </h3>
-          </div>
+          </article>
         </section>
 
         <section class="card-content">
           <p>${this.cardDescription}</p>
         </section>
 
-        <aside class="card-footer">
+        <section class="card-footer">
           <a href=${this.cardActionLink}>SEE MORE</a>
-        </aside>
-      </article>
+        </section>
+      </main>
     `;
   }
 }
