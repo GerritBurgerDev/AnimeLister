@@ -8,10 +8,6 @@ const routes = [
     children: [],
   },
   {
-    path: '/anime/:id',
-    component: 'anime-overview-page',
-  },
-  {
     path: '/auth-error',
     component: 'auth-error-page',
   },
