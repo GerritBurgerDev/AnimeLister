@@ -9,6 +9,8 @@ const routes = [
   {
     path: '/anime/:id',
     component: 'anime-details-page',
+  },
+  {
     path: '/auth-error',
     component: 'auth-error-page',
   },
