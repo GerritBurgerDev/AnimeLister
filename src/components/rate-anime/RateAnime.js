@@ -76,7 +76,7 @@ export class RateAnime extends LitElement {
           id="1"
           src="assets/images/star.png"
           alt="star rating 1"
-          onclick="ratingLevel(1)"
+          onclick="ratingLevel(event, 1)"
           @click=${this.updateRateLevel}
         />
         <img
@@ -84,7 +84,7 @@ export class RateAnime extends LitElement {
           id="2"
           src="assets/images/star.png"
           alt="star rating 2"
-          onclick="ratingLevel(2)"
+          onclick="ratingLevel(event, 3)"
           @click=${this.updateRateLevel}
         />
         <img
@@ -92,7 +92,7 @@ export class RateAnime extends LitElement {
           id="3"
           src="assets/images/star.png"
           alt="star rating 3"
-          onclick="ratingLevel(3)"
+          onclick="ratingLevel(event, 5)"
           @click=${this.updateRateLevel}
         />
         <img
@@ -100,7 +100,7 @@ export class RateAnime extends LitElement {
           id="4"
           src="assets/images/star.png"
           alt="star rating 4"
-          onclick="ratingLevel(4)"
+          onclick="ratingLevel(event, 7)"
           @click=${this.updateRateLevel}
         />
         <img
@@ -108,12 +108,12 @@ export class RateAnime extends LitElement {
           id="5"
           src="assets/images/star.png"
           alt="star rating 5"
-          onclick="ratingLevel(5)"
+          onclick="ratingLevel(event, 9)"
           @click=${this.updateRateLevel}
         />
         <button
           id="submit"
-          onclick="ratingLevel(0)"
+          onclick="ratingLevel(event, 0)"
           @click=${this.submitRating}
         >
           Submit Review
