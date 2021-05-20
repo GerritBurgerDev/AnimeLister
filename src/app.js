@@ -5,7 +5,10 @@ const routes = [
   {
     path: '/',
     component: 'home-page',
-    children: [],
+  },
+  {
+    path: '/anime/:id',
+    component: 'anime-details-page',
   },
   {
     path: '/auth-error',
