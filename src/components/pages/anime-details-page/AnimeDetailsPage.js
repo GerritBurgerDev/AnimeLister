@@ -8,6 +8,7 @@ export class AnimeDetailsPage extends LitElement {
     );
     const [data] = await response.json();
 
+    this.id = data.animeid;
     this.imageUrl = data.imageurl;
     this.title = data.title;
     this.subtitle = data.studio;
@@ -55,6 +56,7 @@ export class AnimeDetailsPage extends LitElement {
       ></div>
       <div class="page-content">
         <anime-details
+          id = ${this.id}
           imageUrl=${this.imageUrl}
           title=${this.title}
           subTitle=${this.subtitle}

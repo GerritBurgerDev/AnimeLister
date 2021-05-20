@@ -3,6 +3,7 @@ import { LitElement, html, css } from 'lit-element';
 export class AnimeDetails extends LitElement {
   static get properties() {
     return {
+      id : { type: Number },
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
@@ -30,6 +31,10 @@ export class AnimeDetails extends LitElement {
           imageUrl=${this.imageUrl}
         ></app-anime-details>
       </div>
+      <!-- <div>
+        <rate-anime
+        id = ${this.id}></rate-anime>
+      </div> -->
     `;
   }
 }
