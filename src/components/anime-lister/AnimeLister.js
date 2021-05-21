@@ -75,7 +75,11 @@ export class AnimeLister extends LitElement {
     super();
     this.title = 'AnimeLister';
     AnimeController.get().then(animes => {
-      this.cards = animes.map(anime => createAnimeModel(anime));
+      this.cards = animes.map(anime => createAnimeModel(anime)).sort((a, b) => {
+        if (a.cardTitle < b.cardTitle) return -1;
+        if (a.cardTitle > b.cardTitle) return 1;
+        return 0;
+      })
     });
     this.sortOrder = 'Descending';
     this.filterIcons = {
