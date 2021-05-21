@@ -14,10 +14,6 @@ export class RateAnime extends LitElement {
 
   static get styles() {
     return css`
-      .container {
-        background-color: #ededed;
-      }
-
       .star {
         width: 50px;
         height: 50px;
@@ -27,11 +23,16 @@ export class RateAnime extends LitElement {
       #submit {
         padding: 10px;
         font-size: 120%;
-        background-color: darkgreen;
-        color: white;
         position: absolute;
         margin-left: 30px;
-        margin-top: 5px;
+        margin-top: 10px;
+        border: 0;
+        box-shadow: rgb(0 0 0 / 25%) 0px 2px 5px 0px, rgb(0 0 0 / 21%) 0px 5px 25px 0px
+      }
+
+      #submit:hover {
+        transform: scale(1.1);
+        background-color: rgba(217, 217, 217, 0.73);
       }
 
       section {
@@ -57,12 +58,6 @@ export class RateAnime extends LitElement {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-      // .then(res => {
-      //   if (res.status === 401) {
-      //     window.location = '/auth-error';
-      //   }
-      //   this.rateLevel = 0;
-      // })
       .catch(err => {
         alert(err);
       });

@@ -27,8 +27,13 @@ export class AppCard extends LitElement {
           padding-bottom: 10px;
           width: 300px;
           height: 350px;
+          transition: transform .5s;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .card:hover {
+          transform: scale(1.1);
         }
 
         .card-image {
@@ -102,14 +107,14 @@ export class AppCard extends LitElement {
         <header class="card-header">
           <img class="card-image" src=${this.cardImageUrl} alt="" />
 
-          <div class="card-header-text">
+          <section class="card-header-text">
             <h2 title=${this.cardTitle} class="card-title">
               ${this.cardTitle}
             </h2>
             <h3 title=${this.cardSubTitle} class="card-subtitle">
               ${this.cardSubTitle}
             </h3>
-          </div>
+          </section>
         </header>
 
         <section class="card-content">
