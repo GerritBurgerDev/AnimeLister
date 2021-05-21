@@ -12,6 +12,7 @@ export class AnimeDetailsPage extends LitElement {
     this.subtitle = data.studio;
     this.description = data.description;
     this.backgroundUrl = data.backgroundurl;
+    this.rating = Number(data.rating).toFixed(2).toString() ?? 0;
   }
 
   static get styles() {
@@ -57,6 +58,7 @@ export class AnimeDetailsPage extends LitElement {
           title=${this.title}
           subTitle=${this.subtitle}
           description=${this.description}
+          rating=${this.rating}
         >
         </anime-details>
       </section>

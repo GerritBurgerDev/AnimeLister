@@ -9,6 +9,7 @@ export class AnimeDetails extends LitElement {
       subTitle: { type: String },
       description: { type: String },
       imageUrl: { type: String },
+      rating: { type: Number },
     };
   }
 
@@ -39,6 +40,16 @@ export class AnimeDetails extends LitElement {
           margin-right: 100px;
         }
 
+        .div-layout header {
+          width: 100%;
+        }
+
+        .div-layout header h2 {
+          float: right;
+          position: relative;
+          top: -65px;
+        }
+
         h1.title {
           font-size: 50px;
           margin-bottom: 0;
@@ -58,6 +69,24 @@ export class AnimeDetails extends LitElement {
     ];
   }
 
+  constructor() {
+    super();
+    this.addEventListener('updatePage', async () => {
+      const response = await fetch(
+        `http://localhost:1337/animedata/${this.id}`
+      );
+      const [data] = await response.json();
+
+      this.id = data.animeid;
+      this.imageUrl = data.imageurl;
+      this.title = data.title;
+      this.subtitle = data.studio;
+      this.description = data.description;
+      this.backgroundUrl = data.backgroundurl;
+      this.rating = Number(data.rating).toFixed(2).toString() ?? 0;
+    });
+  }
+
   render() {
     return html`
       <section class="flex-container">
@@ -65,10 +94,13 @@ export class AnimeDetails extends LitElement {
           <img class="img-details" src=${this.imageUrl} alt="" />
         </aside>
         <section class="div-layout">
-          <h1 class="title">${this.title}</h1>
+          <header>
+            <h1 class="title">${this.title}</h1>
+            <h2>Rating: ${this.rating}/5</h2>
+          </header>
           <h2 class="subtitle">${this.subTitle}</h2>
           <p class="description">${this.description}</p>
-          <rate-anime id=${this.id}></rate-anime>
+          <rate-anime animeId=${this.id}></rate-anime>
         </section>
       </section>
     `;

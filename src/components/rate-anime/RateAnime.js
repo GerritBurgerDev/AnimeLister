@@ -1,3 +1,4 @@
+/* eslint-disable lit-a11y/click-events-have-key-events */
 import { LitElement, html, css } from 'lit-element';
 
 export class RateAnime extends LitElement {
@@ -27,7 +28,8 @@ export class RateAnime extends LitElement {
         margin-left: 30px;
         margin-top: 10px;
         border: 0;
-        box-shadow: rgb(0 0 0 / 25%) 0px 2px 5px 0px, rgb(0 0 0 / 21%) 0px 5px 25px 0px
+        box-shadow: rgb(0 0 0 / 25%) 0px 2px 5px 0px,
+          rgb(0 0 0 / 21%) 0px 5px 25px 0px;
       }
 
       #submit:hover {
@@ -59,8 +61,16 @@ export class RateAnime extends LitElement {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
+      .then(() => {
+        const updateMessage = new CustomEvent('updatePage', {
+          bubbles: true,
+          composed: true,
+        });
+        this.dispatchEvent(updateMessage);
+      })
       .catch(err => {
         alert(err);
+        window.location = '/auth-error';
       });
   }
 
