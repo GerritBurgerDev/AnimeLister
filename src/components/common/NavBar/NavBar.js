@@ -26,6 +26,10 @@ export class NavBar extends LitElement {
         float: left;
       }
 
+      .logo-container {
+        cursor: pointer;
+      }
+
       .logo {
         position: relative;
         left: -40px;
@@ -48,11 +52,15 @@ export class NavBar extends LitElement {
     ];
   }
 
+  navigateToHome() {
+    window.location = '/';
+  }
+
   render() {
     return html`
       <nav>
         <ul>
-          <li class="logo-container">
+          <li @click=${this.navigateToHome} class="logo-container">
             <img class="logo" src="assets/images/logo.png" alt="" />
           </li>
           <li class="google-sign-in">
