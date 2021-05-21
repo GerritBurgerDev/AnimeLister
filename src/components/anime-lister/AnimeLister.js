@@ -122,7 +122,7 @@ export class AnimeLister extends LitElement {
   render() {
     return html`
       <body>
-        <div class="search-and-filter-container">
+        <section class="search-and-filter-container">
           <app-search-bar></app-search-bar>
 
           <ul class="sorting-container">
@@ -131,9 +131,9 @@ export class AnimeLister extends LitElement {
               Name
             </li>
           </ul>
-        </div>
+        </section>
 
-        <div class="grid-container">
+        <section class="grid-container">
           ${this.cards.map(
             card =>
               html`
@@ -146,7 +146,7 @@ export class AnimeLister extends LitElement {
                 ></app-card>
               `
           )}
-        </div>
+        </section>
       </body>
     `;
   }

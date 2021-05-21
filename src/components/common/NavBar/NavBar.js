@@ -41,7 +41,7 @@ export class NavBar extends LitElement {
       }
 
       @media screen and (max-width: 500px) {
-        #signed-in-label {
+        h4#signed-in-label {
           display: none;
         }
       }
