@@ -113,7 +113,7 @@ export class AnimeLister extends LitElement {
           <ul class="sorting-container">
             <li class="sorting-item" @click="${() => this.handleSortEvent()}">
               <i class="fas fa-${this.sortIcon}"></i>
-              Score
+              Name
             </li>
           </ul>
         </div>
