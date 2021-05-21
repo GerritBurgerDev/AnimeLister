@@ -31,10 +31,6 @@ export class AnimeDetails extends LitElement {
           imageUrl=${this.imageUrl}
         ></app-anime-details>
       </div>
-      <!-- <div>
-        <rate-anime
-        id = ${this.id}></rate-anime>
-      </div> -->
     `;
   }
 }
