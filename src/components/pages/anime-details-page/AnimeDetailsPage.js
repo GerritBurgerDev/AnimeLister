@@ -52,7 +52,7 @@ export class AnimeDetailsPage extends LitElement {
         style="--bgimg: url(${this.backgroundUrl})"
         class="img-background"
       ></div>
-      <div class="page-content">
+      <section class="page-content">
         <anime-details
           id=${this.id}
           imageUrl=${this.imageUrl}
@@ -61,7 +61,7 @@ export class AnimeDetailsPage extends LitElement {
           description=${this.description}
         >
         </anime-details>
-      </div>
+      </section>
     `;
   }
 }

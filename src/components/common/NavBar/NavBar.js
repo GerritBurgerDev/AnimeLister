@@ -19,6 +19,7 @@ export class NavBar extends LitElement {
         padding-bottom: 5px;
         box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
         background-color: white;
+        z-index: 100;
       }
 
       li {
