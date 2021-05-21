@@ -45,7 +45,8 @@ export class RateAnime extends LitElement {
   }
 
   submitRating() {
-    fetch('https://anime-test.herokuapp.com/addRating', {
+    // fetch('https://anime-test.herokuapp.com/addRating', {
+    fetch('http://localhost:1337/addRating', {
       method: 'POST',
       mode: 'cors',
       credentials: 'include',

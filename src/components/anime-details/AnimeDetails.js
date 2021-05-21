@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit-element';
 export class AnimeDetails extends LitElement {
   static get properties() {
     return {
-      id : { type: Number },
+      id: { type: Number },
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
@@ -25,6 +25,7 @@ export class AnimeDetails extends LitElement {
     return html`
       <div>
         <app-anime-details
+          id=${this.id}
           title=${this.title}
           subTitle=${this.subTitle}
           description=${this.description}

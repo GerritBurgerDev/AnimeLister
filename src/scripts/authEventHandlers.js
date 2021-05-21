@@ -6,7 +6,8 @@ function signOut() {
   // eslint-disable-next-line no-undef
   const auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(() => {
-    fetch('https://anime-test.herokuapp.com/logout', {
+    // fetch('https://anime-test.herokuapp.com/logout', {
+    fetch('htt[://localhost:1337/logout', {
       method: 'GET',
       mode: 'cors',
       credentials: 'include',
@@ -29,7 +30,8 @@ function onSignIn(googleUser) {
   const user = googleUser.getBasicProfile().getName();
 
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://anime-test.herokuapp.com/login');
+  // xhr.open('POST', 'https://anime-test.herokuapp.com/login');
+  xhr.open('POST', 'http://localhost:1337/login');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.withCredentials = true;
   xhr.onload = () => {

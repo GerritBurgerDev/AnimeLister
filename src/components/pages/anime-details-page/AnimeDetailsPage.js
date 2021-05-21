@@ -8,7 +8,7 @@ export class AnimeDetailsPage extends LitElement {
     );
     const [data] = await response.json();
 
-    // this.id = data.animeid;
+    this.id = data.animeid;
     this.imageUrl = data.imageurl;
     this.title = data.title;
     this.subtitle = data.studio;
@@ -23,7 +23,7 @@ export class AnimeDetailsPage extends LitElement {
         height: 100%;
         width: 100%;
         box-sizing: border-box;
-        position:absolute;
+        position: absolute;
         padding-top: 75px;
       }
 
@@ -36,7 +36,6 @@ export class AnimeDetailsPage extends LitElement {
         filter: blur(8px);
         -webkit-filter: blur(8px);
         background-image: var(--bgimg);
-
       }
 
       .page-content {
@@ -55,7 +54,7 @@ export class AnimeDetailsPage extends LitElement {
       ></div>
       <div class="page-content">
         <anime-details
-          id = ${this.id}
+          id=${this.id}
           imageUrl=${this.imageUrl}
           title=${this.title}
           subTitle=${this.subtitle}

@@ -4,16 +4,12 @@ import Fontawesome from 'lit-fontawesome';
 export class AppAnimeDetails extends LitElement {
   static get properties() {
     return {
+      id: { type: Number },
       title: { type: String },
       subTitle: { type: String },
       description: { type: String },
       imageUrl: { type: String },
     };
-  }
-
-  constructor() {
-    super();
-    console.log(this);
   }
 
   static get styles() {
@@ -42,7 +38,6 @@ export class AppAnimeDetails extends LitElement {
 
         h1.title {
           font-size: 50px;
-
         }
 
         h2.subtitle {
@@ -68,7 +63,7 @@ export class AppAnimeDetails extends LitElement {
           <h1 class="title">${this.title}</h1>
           <h2 class="subtitle">${this.subTitle}</h2>
           <p class="description">${this.description}</p>
-          <rate-anime id = ${this.id}></rate-anime>
+          <rate-anime animeId=${this.id}></rate-anime>
         </div>
       </div>
     `;

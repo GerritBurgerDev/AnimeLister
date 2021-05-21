@@ -1,5 +1,5 @@
 const getAnime = async () => {
-  const res = await fetch('https://anime-test.herokuapp.com/listanime');
+  const res = await fetch('http://localhost:1337/listanime');
   const anime = await res.json();
   return anime;
 };
