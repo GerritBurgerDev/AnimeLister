@@ -57,12 +57,12 @@ export class RateAnime extends LitElement {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-      .then(res => {
-        if (res.status === 401) {
-          window.location = '/auth-error';
-        }
-        this.rateLevel = 0;
-      })
+      // .then(res => {
+      //   if (res.status === 401) {
+      //     window.location = '/auth-error';
+      //   }
+      //   this.rateLevel = 0;
+      // })
       .catch(err => {
         alert(err);
       });
