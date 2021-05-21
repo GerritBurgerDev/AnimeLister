@@ -45,27 +45,31 @@ export class RateAnime extends LitElement {
   }
 
   submitRating() {
-    fetch('https://anime-test.herokuapp.com/addRating', {
-      method: 'POST',
-      mode: 'cors',
-      credentials: 'include',
-      body: JSON.stringify({
-        animeid: this.animeId,
-        rating: this.rateLevel,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      // .then(res => {
-      //   if (res.status === 401) {
-      //     window.location = '/auth-error';
-      //   }
-      //   this.rateLevel = 0;
-      // })
-      .catch(err => {
-        alert(err);
-      });
+      if (this.rateLevel != 0){
+        fetch('https://anime-test.herokuapp.com/addRating', {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({
+            animeid: this.animeId,
+            rating: this.rateLevel,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        // .then(res => {
+        //   if (res.status === 401) {
+        //     window.location = '/auth-error';
+        //   }
+        //   this.rateLevel = 0;
+        // })
+        .catch(err => {
+            alert(err);
+        });
+    } else {
+        alert("Choose rating first");
+    }
   }
 
   render() {
