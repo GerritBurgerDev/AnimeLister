@@ -32,18 +32,9 @@ export class NavBar extends LitElement {
 
       .google-sign-in {
         float: right;
-      }
-
-      .google-sign-in {
         position: relative;
         right: 55px;
         top: 5px;
-      }
-
-      @media screen and (max-width: 500px) {
-        #signed-in-label {
-          display: none;
-        }
       }
     `;
   }
