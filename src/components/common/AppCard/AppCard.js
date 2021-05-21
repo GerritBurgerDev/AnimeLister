@@ -99,26 +99,26 @@ export class AppCard extends LitElement {
   render() {
     return html`
       <main class="card">
-        <section class="card-header">
+        <header class="card-header">
           <img class="card-image" src=${this.cardImageUrl} alt="" />
 
-          <article class="card-header-text">
+          <div class="card-header-text">
             <h2 title=${this.cardTitle} class="card-title">
               ${this.cardTitle}
             </h2>
             <h3 title=${this.cardSubTitle} class="card-subtitle">
               ${this.cardSubTitle}
             </h3>
-          </article>
-        </section>
+          </div>
+        </header>
 
         <section class="card-content">
           <p>${this.cardDescription}</p>
         </section>
 
-        <section class="card-footer">
+        <footer class="card-footer">
           <a href=${this.cardActionLink}>SEE MORE</a>
-        </section>
+        </footer>
       </main>
     `;
   }

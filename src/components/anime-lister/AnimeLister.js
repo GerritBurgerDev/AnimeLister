@@ -31,9 +31,20 @@ export class AnimeLister extends LitElement {
           display: flex;
           flex-direction: column;
           max-width: 100%;
-          margin: 0 200px;
           padding-top: 75px;
           padding-bottom: 50px;
+        }
+
+        @media screen and (max-width: 1920px) {
+          :host {
+            margin: 0 200px;
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          :host {
+            margin: 0 10vw;
+          }
         }
 
         main {

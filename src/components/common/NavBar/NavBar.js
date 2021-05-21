@@ -39,6 +39,12 @@ export class NavBar extends LitElement {
         right: 55px;
         top: 5px;
       }
+
+      @media screen and (max-width: 500px) {
+        #signed-in-label {
+          display: none;
+        }
+      }
     `;
   }
 

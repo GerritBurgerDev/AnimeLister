@@ -25,12 +25,10 @@
 
   <body>
     <nav-bar>
-      <div>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <section id="signed-in-controls">
-          <h4 id="signed-in-label"></h4>
-          <button type="button" onclick="signOut()">Sign out</button>
-        </section>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <div id="signed-in-controls">
+        <h4 id="signed-in-label"></h4>
+        <button type="button" onclick="signOut()">Sign out</button>
       </div>
     </nav-bar>
     <main id="outlet"></main>
