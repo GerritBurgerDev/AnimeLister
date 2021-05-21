@@ -143,11 +143,17 @@ export class AnimeLister extends LitElement {
       this.sortOrder === 'Descending'
         ? this.filterIcons.ascending
         : this.filterIcons.descending;
+
     this.cards = this.cards.sort((a, b) => {
       if (this.sortOrder === 'Ascending') {
-        return Number(a) - Number(b);
+        if (a.cardTitle < b.cardTitle) return -1;
+        if (a.cardTitle > b.cardTitle) return 1;
+        return 0;
+      } else {
+        if (a.cardTitle > b.cardTitle) return -1;
+        if (a.cardTitle < b.cardTitle) return 1;
+        return 0;
       }
-      return Number(b) - Number(a);
     });
   }
 }
