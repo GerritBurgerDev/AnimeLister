@@ -8,7 +8,7 @@ export class AnimeDetailsPage extends LitElement {
     );
     const [data] = await response.json();
 
-    this.id = data.animeid;
+    // this.id = data.animeid;
     this.imageUrl = data.imageurl;
     this.title = data.title;
     this.subtitle = data.studio;
@@ -20,9 +20,11 @@ export class AnimeDetailsPage extends LitElement {
     return css`
       :host {
         display: flex;
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         box-sizing: border-box;
+        position:absolute;
+        padding-top: 75px;
       }
 
       .img-background {
@@ -34,16 +36,13 @@ export class AnimeDetailsPage extends LitElement {
         filter: blur(8px);
         -webkit-filter: blur(8px);
         background-image: var(--bgimg);
-        margin-top: 75px;
+
       }
 
       .page-content {
-        position: relative;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        margin-top: 10px;
+        position: absolute;
+        max-width: 100%;
+        margin: 10px 50px;
       }
     `;
   }
