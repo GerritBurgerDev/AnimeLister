@@ -3,9 +3,7 @@ import { LitElement, html, css } from 'lit-element';
 export class AnimeDetailsPage extends LitElement {
   async onBeforeEnter(context) {
     const { id } = context.params;
-    const response = await fetch(
-      `https://anime-test.herokuapp.com/animedata/${id}`
-    );
+    const response = await fetch(`http://localhost:1337/animedata/${id}`);
     const [data] = await response.json();
 
     this.id = data.animeid;
